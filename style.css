@@ -1,110 +1,132 @@
-:root {
-    --primary-color: #F4CE01;
-    --secondary-color: #0F0F0B;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+::selection{
+  color: #ffff;
+  background: rgb(142, 73, 232);
 }
-html {
-    font-size: 62.5%;
+body{
+  width: 100%;
+  height: 100vh;
+  
+  padding: 10px;
+  background: cyan;
 }
-
-body {
-    background-color: var(--primary-color);
-    font: bold 2rem 'Open Sans', sans-serif;
+.wrapper{
+  background: #fff;
+  max-width: 400px;
+  width: 100%;
+  margin: 120px auto;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
 }
-
-.todo {
-    display: flex;
-    width: 50vw;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    gap: 15px;
+.wrapper header{
+  font-size: 30px;
+  font-weight: 600;
 }
-
-.todo__title {
-    display: flex;
-    background-color: var(--secondary-color);
-    width: 100%;
-    height: 80px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    box-shadow: 1px 1px 5px var(--secondary-color);
-    font-size: 3rem;
-    color: var(--primary-color);
+.wrapper .inputField{
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  height: 45px;
 }
-
-.todo__list {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    gap: 10px;
+.inputField input{
+  width: 85%;
+  height: 100%;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 17px;
+  padding-left: 15px;
+  transition: all 0.3s ease;
 }
-
-.todo__item{
-    display: flex;
-    width: 100%;
-    height: 60px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    box-shadow: 1px 1px 5px var(--secondary-color);
+.inputField input:focus{
+  border-color: #8E49E8;
 }
-.todo__item > div {
-    width: 80%;
+.inputField button{
+  width: 50px;
+  height: 100%;
+  border: none;
+  color: #fff;
+  margin-left: 5px;
+  font-size: 21px;
+  outline: none;
+  background: #8E49E8;
+  cursor: pointer;
+  border-radius: 3px;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
-.todo__item:hover {
-    cursor: pointer;
-    transition: all .5s ease;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+.inputField button:hover,
+.footer button:hover{
+  background: #721ce3;
 }
-
-
-.todo__item > input[type='text'] {
-    border: none;
-    width: 80%;
-    font: inherit;
+.inputField button.active{
+  opacity: 1;
+  pointer-events: auto;
 }
-
-.todo__item > input[type='button'],
-.todo__item > input[type='checkbox'] {
-    width: 30px;
-    height: 30px;
-    font: inherit;
+.wrapper .todoList{
+  max-height: 250px;
+  overflow-y: auto;
 }
-
-
-.todo__item > input[type='checkbox']:checked  + div {
-    text-decoration:line-through;
+.todoList li{
+  position: relative;
+  list-style: none;
+  margin-bottom: 8px;
+  background: #f2f2f2;
+  border-radius: 3px;
+  padding: 10px 15px;
+  cursor: default;
+  overflow: hidden;
+  word-wrap: break-word;
 }
-
-.todo__new-item{
-    display: flex;
-    background-color: #fff59d;
-    width: 100%;
-    height: 70px;
-    justify-content: space-evenly;
-    padding: 10px 0;
-    box-shadow: 1px 1px 5px var(--secondary-color);
-    margin: 10px;
-    font: inherit;
+.todoList li .icon{
+  position: absolute;
+  right: -45px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e74c3c;
+  width: 45px;
+  text-align: center;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
-
-.todo__new-item > input{
-    background-color: #fff59d;
-    border: none;
-    width: 80%;
-    outline: none;
-    font: inherit;
+.todoList li:hover .icon{
+  right: 0px;
 }
-
-.todo__new-item > input::placeholder {
-    font-style: italic;
-    font-weight: normal;
+.wrapper .footer{
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer button{
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  margin-left: 5px;
+  background: #8E49E8;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.footer button.active{
+  opacity: 1;
+  pointer-events: auto;
 }
